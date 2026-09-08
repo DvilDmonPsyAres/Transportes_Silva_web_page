@@ -51,3 +51,4 @@ No hay datos de negocio repartidos por el HTML. `config-loader.js` construye las
 
 Use WebP o AVIF comprimido, con hero de aproximadamente 2000 px de ancho y el resto entre 1200–1600 px. Antes de publicar: compruebe enlaces, contraste, contenido legal, canonical y los datos de LocalBusiness. Para optimizar aún más, minifique CSS/JS como parte de su pipeline de despliegue; los archivos fuente se conservan legibles para facilitar la personalización.
 # Silva_transportes
+# Transportes_Silva_web_page

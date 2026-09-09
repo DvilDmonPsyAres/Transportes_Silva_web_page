@@ -107,6 +107,7 @@ window.SiteConfigLoader = (() => {
     $("#contact").innerHTML =
       `<div class="container"><div class="section__head reveal"><p class="eyebrow">${C.esc(x.eyebrow)}</p><h2 class="section__title">${C.esc(x.title)}</h2><p class="section__lead">${C.esc(x.text)}</p></div><div class="contact-card reveal"><div class="contact-line"><small>Teléfono</small><a href="${phoneLink}">${C.esc(c.business.phone)}</a></div><div class="contact-line"><small>Correo</small><a href="mailto:${C.esc(c.business.email)}">${C.esc(c.business.email)}</a></div><div class="contact-line"><small>Ubicación y horario</small><a href="${C.esc(c.business.mapUrl)}" target="_blank" rel="noopener">${C.esc(c.business.address)}</a><span>${c.business.schedule.map(C.esc).join(" · ")}</span></div><div class="contact-actions"><a class="btn btn--primary" href="${waLink()}" target="_blank" rel="noopener">${C.esc(c.buttons.whatsapp)}</a><a class="btn btn--ghost" href="${phoneLink}">${C.esc(c.buttons.call)}</a></div></div></div>`;
   }
+  /*
   function renderFooter() {
     const socials = Object.entries(c.social).filter(([, url]) => url);
     $("#site-footer").innerHTML =
@@ -116,6 +117,103 @@ window.SiteConfigLoader = (() => {
         .join(
           "",
         )}</ul></div><div><h3 class="footer-title">Contacto</h3><ul class="footer-list"><li><a href="${phoneLink}">${C.esc(c.business.phone)}</a></li><li><a href="mailto:${C.esc(c.business.email)}">${C.esc(c.business.email)}</a></li><li> <a href="${waLink()}" target="_blank" rel="noopener">WhatsApp</a></li></ul>${socials.length ? `<div class="socials" style="margin-top:1rem">${socials.map(([name, url]) => `<a href="${C.esc(url)}" target="_blank" rel="noopener">${C.esc(name)}</a>`).join("")}</div>` : ""}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${C.esc(c.business.name)}. Todos los derechos reservados.</span><span><a href="#">Aviso de privacidad</a> · <a href="#">Términos</a></span></div></div>`;
+  }
+        */
+  function renderFooter() {
+    const socials = Object.entries(c.social).filter(([, url]) => url);
+
+    $("#site-footer").innerHTML = `<div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <a class="brand" href="#hero">
+            <img
+              class="brand-mark"
+              src="${C.esc(c.branding.logo)}"
+              alt=""
+              aria-hidden="true"
+              onerror="this.remove()"
+            >
+            <span>${C.esc(c.business.name)}</span>
+          </a>
+
+          <p style="max-width:330px;margin-top:1rem;font-size:.92rem">
+            ${C.esc(c.business.description)}
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Navegación</h3>
+          <ul class="footer-list">
+            ${c.navigation
+              .map((n) => `<li><a href="${n.href}">${C.esc(n.label)}</a></li>`)
+              .join("")}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Servicios</h3>
+          <ul class="footer-list">
+            ${c.services
+              .slice(0, 4)
+              .map((s) => `<li>${C.esc(s.title)}</li>`)
+              .join("")}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Contacto</h3>
+          <ul class="footer-list">
+            <li>
+              <a href="${phoneLink}">
+                ${C.esc(c.business.phone)}
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:${C.esc(c.business.email)}">
+                ${C.esc(c.business.email)}
+              </a>
+            </li>
+
+            <li>
+              <a href="${waLink()}" target="_blank" rel="noopener">
+                WhatsApp
+              </a>
+            </li>
+          </ul>
+
+          ${
+            socials.length
+              ? `<div class="socials" style="margin-top:1rem">
+                  ${socials
+                    .map(
+                      ([name, url]) =>
+                        `<a href="${C.esc(url)}" target="_blank" rel="noopener">
+                          ${C.esc(name)}
+                        </a>`,
+                    )
+                    .join("")}
+                </div>`
+              : ""
+          }
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>
+          © ${new Date().getFullYear()}
+          ${C.esc(c.business.name)}.
+          Todos los derechos reservados.
+        </span>
+
+        <span>
+          <a href="#">Aviso de privacidad</a> ·
+          <a href="#">Términos</a>
+        </span>
+      </div>
+    </div>`;
   }
   function applySeo() {
     document.title = c.seo.title;

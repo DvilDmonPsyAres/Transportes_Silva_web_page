@@ -251,7 +251,6 @@ window.siteConfig = {
     keywords:
       "Transporte empresarial, transporte de personal, autobuses para empleados, servicios profesionales, asesoría, soluciones empresariales",
     canonical: "https://www.tudominio.com/",
-    image: "assets/images/hero.webp",
     locale: "es_MX",
   },
 };

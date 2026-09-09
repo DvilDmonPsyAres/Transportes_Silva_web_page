@@ -248,7 +248,8 @@ window.siteConfig = {
       "Silva Transportes Monterrey. | Soluciones profesionales en transporte de personal",
     description:
       "Silva Transportes Monterrey ofrece servicios de Transporte profesional de personal para personas y empresas.",
-    keywords: "servicios profesionales, asesoría, soluciones empresariales",
+    keywords:
+      "Transporte empresarial, transporte de personal, autobuses para empleados, servicios profesionales, asesoría, soluciones empresariales",
     canonical: "https://www.tudominio.com/",
     image: "assets/images/hero.webp",
     locale: "es_MX",

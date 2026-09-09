@@ -21,9 +21,48 @@ window.SiteConfigLoader = (() => {
     mode === "whatsapp"
       ? `<a class="btn btn--${mode === "whatsapp" ? "primary" : mode}" href="${waLink()}" target="_blank" rel="noopener">${C.esc(label)}</a>`
       : `<a class="btn btn--${mode}" href="#contact">${C.esc(label)}</a>`;
+  /*
   function renderHeader() {
     $("#site-header").innerHTML =
       `<div class="container header-inner"><a class="brand" href="#hero" aria-label="Inicio, ${C.esc(c.business.name)}"><img class="brand-image" src="${C.esc(c.branding.logo)}" alt="" onerror="this.remove()"><span class="brand-mark" aria-hidden="true">S</span><span>${C.esc(c.business.name)}</span></a><nav class="desktop-nav" aria-label="Navegación principal">${c.navigation.map((i) => `<a href="${i.href}">${C.esc(i.label)}</a>`).join("")}<a class="btn btn--dark" href="${waLink()}" target="_blank" rel="noopener">${C.esc(c.buttons.primary)}</a></nav><button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">☰</button><nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil">${c.navigation.map((i) => `<a href="${i.href}">${C.esc(i.label)}</a>`).join("")}<a class="btn btn--dark" href="${waLink()}" target="_blank" rel="noopener">${C.esc(c.buttons.primary)}</a></nav></div>`;
+  }*/
+  function renderHeader() {
+    $("#site-header").innerHTML = `<div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="Inicio, ${C.esc(c.business.name)}">
+        <img
+          class="brand-image"
+          src="${C.esc(c.branding.logo)}"
+          alt=""
+          onerror="this.remove()"
+        >
+
+        <img
+          class="brand-mark"
+          src="${C.esc(c.branding.logo)}"
+          alt=""
+          aria-hidden="true"
+          onerror="this.remove()"
+        >
+
+        <span>${C.esc(c.business.name)}</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        ${c.navigation.map((i) => `<a href="${i.href}">${C.esc(i.label)}</a>`).join("")}
+        <a class="btn btn--dark" href="${waLink()}" target="_blank" rel="noopener">
+          ${C.esc(c.buttons.primary)}
+        </a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">☰</button>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil">
+        ${c.navigation.map((i) => `<a href="${i.href}">${C.esc(i.label)}</a>`).join("")}
+        <a class="btn btn--dark" href="${waLink()}" target="_blank" rel="noopener">
+          ${C.esc(c.buttons.primary)}
+        </a>
+      </nav>
+    </div>`;
   }
   function renderHero() {
     $("#hero").innerHTML =

@@ -536,3 +536,35 @@ button:focus-visible {
   opacity: 1;
   transform: none;
 }
+.floating-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.18),
+    0 4px 10px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.08);
+}
+
+.floating-whatsapp:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.whatsapp-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.floating-whatsapp:hover .whatsapp-icon {
+  transform: scale(1.08);
+}
